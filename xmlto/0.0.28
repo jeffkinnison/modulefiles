@@ -1,0 +1,36 @@
+#%Module########################################
+##
+#	Jeff Kinnison, jkinniso@nd.edu
+#	Sun 07 Jun 20:50 EDT 2015
+##
+
+proc ModulesHelp { } {
+puts stderr "The asciidoc modulefile defines the default system paths"
+puts stderr "and environment variables needed to use anaconda v8.6.9."
+puts stderr "Type \"module load asciidoc/8.6.9\" to load."
+}
+
+set _module_name	[module-info name]
+set is_module_rm	[module-info mode remove]
+set is_module_load	[module-info mode load]
+set sys			[uname sysname]
+set os			[uname release]
+set mach		[uname machine]
+
+################################################
+
+set name "xmlto"
+set arch "x86_64"
+set version "0.0.28"
+
+set root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/$arch/$name/$version"
+
+prepend-path	PATH		"$root/bin"
+prepend-path	INCLUDE		"$root/include"
+prepend-path	INCLUDE_PATH	"$root/include"
+prepend-path	C_INCLUDE_PATH	"$root/include"
+prepend-path	LIBRARY		"$root/lib"
+prepend-path	LD_LIBRARY_PATH	"$root/lib"
+prepend-path	LD_RUN_PATH	"$root/lib"
+
+unset root

@@ -1,0 +1,26 @@
+#%Module
+
+set _module_name    [module-info name]
+set is_module_rm    [module-info mode remove]
+set is_module_load  [module-info mode load]
+
+set sys   [uname sysname]
+set os    [uname release]
+set mach  [uname machine]
+
+
+set name "mpc"
+set arch "x86_64"
+set vers "1.0.3-static"
+set root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/$arch/$name/$vers"
+
+#prepend-path PATH			$root/bin
+prepend-path INCLUDE			$root/include
+prepend-path INCLUDE_PATH		$root/include
+prepend-path C_INCLUDE_PATH		$root/include
+prepend-path LIBRARY_PATH		$root/lib
+prepend-path LD_LIBRARY_PATH 		$root/lib
+prepend-path LD_RUN_PATH	 	$root/lib
+prepend-path MANPATH			$root/share/man
+
+unset root

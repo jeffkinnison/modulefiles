@@ -1,0 +1,19 @@
+#%Module
+
+set _module_name  [module-info name]
+set is_module_rm  [module-info mode remove]
+set sys           [uname sysname]
+set os            [uname release]
+set mach          [uname machine]
+
+
+set root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/python/x86_64/2.7.1"
+
+prepend-path PATH				$root/bin
+prepend-path INCLUDE			$root/include
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LD_RUN_PATH		$root/lib
+prepend-path LIBRARY_PATH		$root/lib
+prepend-path MANPATH			$root/share/man
+
+unset root

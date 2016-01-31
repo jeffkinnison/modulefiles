@@ -1,0 +1,29 @@
+#%Module
+
+
+set name "cctools"
+set arch "x86_64"
+set version "3.7.3"
+
+set mod0 ""
+set mods [split $mod0 " "]
+
+foreach mod $mods {
+    if { ! [ is-loaded $mod ] } {
+       system "echo loading $mod\n"
+       module load $mod
+    }
+}
+
+
+set root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/$arch/$name/$version"
+
+prepend-path PATH				$root/bin
+prepend-path INCLUDE			$root/include
+prepend-path INCLUDE_PATH		$root/include
+prepend-path C_INCLUDE_PATH		$root/include
+prepend-path LIBRARY_PATH		$root/lib
+prepend-path LD_LIBRARY_PATH 	$root/lib
+prepend-path PYTHONPATH			$root/lib/python2.7/site-packages
+
+unset root

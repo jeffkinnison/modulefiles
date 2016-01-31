@@ -1,0 +1,53 @@
+#%Module########################################
+##
+#	Jeff Kinnison, jkinniso@nd.edu
+#	Sun Jun 07 19:42 EDT 2015
+#
+
+proc ModulesHelp { } {
+puts stderr "The AWE-WQ modulefile defines the default system paths"
+puts stderr "and environment variables needed to use the AWE-WQ release.
+puts stderr "Type \"module load awe/release\" to load."
+}
+
+set _module_name 	[module-info name]
+set is_module_rm	[module-info mode remove]
+set is_module_load	[module-info mode load]
+set sys			[uname sysname]
+set os			[uname release]
+set mach		[uname machine]
+
+set mod0 "anaconda3/2.3 cctools/5.2.0 gsl/1.16 gromacs/4.5.5 xdrfile/1.1.4"
+set mods [split $mod0 " "]
+
+foreach mod $mods {
+	if { ! [is-loaded mod] } {
+		system "echo loading $mod"
+		module load $mod
+	}
+}
+
+################################################
+
+set name "awe/analysis"
+set arch "x86_64"
+
+set app_root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/$arch"
+set root "$app_root/$name"
+
+prepend-path	PATH		"$root/bin"
+prepend-path	INCLUDE		"$root/include"
+prepend-path	INCLUDE_PATH	"$root/include"
+prepend-path	C_INCLUDE_PATH	"$root/include"
+prepend-path	LIBRARY_PATH	"$root/lib"
+prepend-path	LD_LIBRARY_PATH	"$root/lib"
+prepend-path 	LD_RUN_PATH	"$root/lib"
+prepend-path	MANPATH		"$root/share/man"
+
+prepend-path	PYTHONPATH	"$root/lib/python3.4/site-packages"
+prepend-path	PYTHONPATH	"$app_root/cctools/5.2.0/lib/python3.4/site-packages"
+#prepend-path	PYTHONPATH	"$app_root/anaconda3/lib/python3.4/site-packages"
+
+unset app_root
+unset root
+

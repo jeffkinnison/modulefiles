@@ -1,0 +1,19 @@
+#%Module
+
+
+set name "libffi"
+set arch "x86_64"
+set vers "3.2.1"
+set root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/$arch/$name/$vers"
+
+prepend-path INCLUDE			$root/lib/libffi-3.2.1/include
+prepend-path INCLUDE_PATH		$root/lib/libffi-3.2.1/include
+prepend-path C_INCLUDE_PATH		$root/lib/libffi-3.2.1/include
+prepend-path LIBRARY_PATH		$root/lib64
+prepend-path LD_LIBRARY_PATH 		$root/lib64
+prepend-path LD_RUN_PATH	 	$root/lib64
+prepend-path MANPATH			$root/share/man
+
+prepend-path PKG_CONFIG_PATH            $root/lib/libffi-3.2.1/pkgconfig
+
+unset root

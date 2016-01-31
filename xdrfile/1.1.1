@@ -1,0 +1,18 @@
+#%Module
+
+set pkgname "xdrfile"
+set pkgversion "1.1.1"
+set arch "x86_64"
+
+set root "/afs/crc.nd.edu/user/c/cabdulwa/Public/apps/$pkgname/$arch/$pkgversion"
+
+
+prepend-path PATH				$root/bin
+prepend-path INCLUDE			$root/include
+prepend-path INCLUDE_PATH		$root/include
+prepend-path C_INCLUDE_PATH		$root/include
+prepend-path LIBRARY_PATH		$root/lib
+prepend-path LD_LIBRARY_PATH 	$root/lib
+prepend-path LD_RUN_PATH		$root/lib
+
+unset root

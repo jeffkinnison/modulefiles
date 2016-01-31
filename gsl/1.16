@@ -1,0 +1,18 @@
+#%Module
+
+
+set name "gsl"
+set arch "x86_64"
+set vers "1.16"
+set root "/afs/crc.nd.edu/user/j/jkinniso/Public/apps/$arch/$name/$vers"
+
+prepend-path PATH			$root/bin
+prepend-path INCLUDE			$root/include
+prepend-path INCLUDE_PATH		$root/include
+prepend-path C_INCLUDE_PATH		$root/include
+prepend-path LIBRARY_PATH		$root/lib
+prepend-path LD_LIBRARY_PATH 		$root/lib
+prepend-path LD_RUN_PATH	 	$root/lib
+prepend-path MANPATH			$root/share/man
+
+unset root
